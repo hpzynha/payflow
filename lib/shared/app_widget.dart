@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:flutter/services.dart';
 import 'package:payflow/modules/barcode_scanner/barcode_scanner_page.dart';
 import 'package:payflow/modules/home/home_page.dart';
 import 'package:payflow/modules/login/login_page.dart';
@@ -7,6 +7,13 @@ import 'package:payflow/modules/splash/splash_page.dart';
 import 'themes/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
+  AppWidget() {
+    SytemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,4 +29,8 @@ class AppWidget extends StatelessWidget {
       },
     );
   }
+}
+
+class SytemChrome {
+  static void setPreferredOrientations(List<DeviceOrientation> list) {}
 }
