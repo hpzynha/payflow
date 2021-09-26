@@ -7,7 +7,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     Container(
       color: Colors.red,
     ),
-    Container(color: Colors.blue)
+    Container(color: Colors.blue),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,11 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyles.titleRegular,
                     children: [
                       TextSpan(
-                          text: "Larissa",
-                          style: TextStyles.titleBoldBackground)
+                          text: "Gabul", style: TextStyles.titleBoldBackground)
                     ]),
               ),
               subtitle: Text(
-                "Matenha suas contas em dia",
+                "Mantenha suas contas em dia",
                 style: TextStyles.captionShape,
               ),
               trailing: Container(
@@ -55,47 +54,47 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[controller.currentPage],
       bottomNavigationBar: Container(
-          height: 90,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    controller.setPage(0);
-                    setState(() {});
-                  },
-                  icon: Icon(
-                    Icons.home,
-                    color: AppColors.primary,
-                  )),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "/barcode_scanner");
+        height: 90,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+                onPressed: () {
+                  controller.setPage(0);
+                  setState(() {});
                 },
-                child: Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
+                icon: Icon(
+                  Icons.home,
+                  color: AppColors.primary,
+                )),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/barcode_scanner");
+              },
+              child: Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
                     color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Icon(
-                    Icons.add_box_outlined,
-                    color: AppColors.background,
-                  ),
+                    borderRadius: BorderRadius.circular(5)),
+                child: Icon(
+                  Icons.add_box_outlined,
+                  color: AppColors.background,
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    controller.setPage(1);
-                    setState(() {});
-                  },
-                  icon: Icon(
-                    Icons.description_outlined,
-                    color: AppColors.body,
-                  ))
-            ],
-          )),
+            ),
+            IconButton(
+                onPressed: () {
+                  controller.setPage(1);
+                  setState(() {});
+                },
+                icon: Icon(
+                  Icons.description_outlined,
+                  color: AppColors.body,
+                ))
+          ],
+        ),
+      ),
     );
   }
 }
